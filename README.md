@@ -2,7 +2,7 @@
 In this project i was able to successfully create an html website that autmates adding emplyees and their information to the websites card in which they display cleanly and we were able to get this information uisng inquirer in order to rpompt the user to give the data on each employee and add as many employees as wanted.
 
 ## How to use the app
-![Video of App](employeetest.mp4)
+![Video of App](ezgif.com-gif-maker.gif)
 ## Image of the Website
 ![Website](employee.PNG)
 ![Prompt](narly.PNG)
