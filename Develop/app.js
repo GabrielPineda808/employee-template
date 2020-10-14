@@ -148,7 +148,7 @@ function newIntern(){
     })
 }
 
-generateHTML(){
+function generateHTML(){
     fs.writeFileSync(outputPath, render(team), "utf-8")
 }
 
