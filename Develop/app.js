@@ -23,17 +23,57 @@ inquirer
         { name: 'Manager'},
         { name: 'Engineer'},
         { name: 'Intern' },
-        { name: 'No More To Add'},
+        { name: 'Quit'},
       ]
     }
   ])
   .then(res => {
       switch(res.type){
-        
+        case "Manager":
+            newManager();
+            break;
+        case "Engineer":
+            newEngineer();
+            break;
+        case "Intern":
+            newIntern();
+            break;
+        case "Quit":
+            quit();
+            break;
       }
   }
-
   );
+
+function newManager(){
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Enter Manager's name: ",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "Enter Manager's ID: ",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "Enter Manager's email: ",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "Enter Manager's Office Number: ",
+            name: "officeNumber"
+        },
+    ]).then(input => {
+        var name = input.name;
+        var id = input.id;
+        var email = input.email;
+        var number = input.officeNumber;
+    })
+}
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
