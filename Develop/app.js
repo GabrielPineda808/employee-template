@@ -17,36 +17,36 @@ const team = []
 
 function repeat(){
     inquirer
-  .prompt([
-    {
-      type: "list",
-      message: "What is the role you are adding?",
-      name: "type",
-      choices: [
-        { name: 'Manager'},
-        { name: 'Engineer'},
-        { name: 'Intern' },
-        { name: 'Quit'},
-      ]
+    .prompt([
+        {
+        type: "list",
+        message: "What is the role you are adding?",
+        name: "type",
+        choices: [
+            { name: 'Manager'},
+            { name: 'Engineer'},
+            { name: 'Intern' },
+            { name: 'Quit'},
+        ]
+        }
+    ])
+    .then(res => {
+        switch(res.type){
+            case "Manager":
+                newManager();
+                break;
+            case "Engineer":
+                newEngineer();
+                break;
+            case "Intern":
+                newIntern();
+                break;
+            case "Quit":
+                generateHTML();
+                break;
+        }
     }
-  ])
-  .then(res => {
-      switch(res.type){
-        case "Manager":
-            newManager();
-            break;
-        case "Engineer":
-            newEngineer();
-            break;
-        case "Intern":
-            newIntern();
-            break;
-        case "Quit":
-            generateHTML();
-            break;
-      }
-  }
-  );
+    );
 }
 
 function newManager(){
