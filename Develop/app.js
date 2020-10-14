@@ -15,7 +15,8 @@ const render = require("./lib/htmlRenderer");
 // and to create objects for each team member (using the correct classes as blueprints!)
 const team = []
 
-inquirer
+function repeat(){
+    inquirer
   .prompt([
     {
       type: "list",
@@ -41,11 +42,12 @@ inquirer
             newIntern();
             break;
         case "Quit":
-            quit();
+            generateHTML();
             break;
       }
   }
   );
+}
 
 function newManager(){
     inquirer.prompt([
@@ -75,7 +77,8 @@ function newManager(){
         var email = input.email;
         var number = input.officeNumber;
         var manager = new Manager(name,id,email,number);
-        team.push(manager)
+        team.push(manager);
+        repeat();
     })
 }
 
@@ -107,7 +110,8 @@ function newEngineer(){
         var email = input.email;
         var github = input.username;
         var engineer = new Engineer(name,id,email,github);
-        team.push(engineer)
+        team.push(engineer);
+        repeat();
     })
 }
 
@@ -138,10 +142,17 @@ function newIntern(){
         var id = input.id;
         var email = input.email;
         var school = input.school;
-        var intern = new Engineer(name,id,email,school);
-        team.push(intern)
+        var intern = new Intern(name,id,email,school);
+        team.push(intern);
+        repeat();
     })
 }
+
+generateHTML(){
+    fs.writeFileSync(outputPath, render(team), "utf-8")
+}
+
+repeat();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
