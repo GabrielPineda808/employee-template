@@ -79,7 +79,37 @@ function newManager(){
     })
 }
 
-
+function newEngineer(){
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Enter Engineer's name: ",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "Enter Engineer's ID: ",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "Enter Engineer's email: ",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "Enter Engineer's Github Username: ",
+            name: "username"
+        },
+    ]).then(input => {
+        var name = input.name;
+        var id = input.id;
+        var email = input.email;
+        var github = input.username;
+        var engineer = new Engineer(name,id,email,github);
+        team.push(engineer)
+    })
+}
 
 
 // After the user has input all employees desired, call the `render` function (required
